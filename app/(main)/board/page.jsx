@@ -6,7 +6,6 @@ import {
 import StickyWarpper from "@/app/component/StickyWarpper";
 import UserProcessing from "@/app/component/UserProcessing";
 import Image from "next/image";
-import React from "react";
 import Users from "./users";
 import Promo from "@/app/component/Promo";
 
@@ -35,16 +34,18 @@ const Page = async () => {
             See where you stand among other learners in the community.
           </p>
         </div>
-        {usersProgress.map((user, index) => (
-          <Users
-            index={index}
-            key={user.userId}
-            name={user.userName}
-            image={user.userImage}
-            points={user.points}
-            me={userProgress.userId == user.userId}
-          />
-        ))}
+        <div className="">
+          {usersProgress.map((user, index) => (
+            <Users
+              index={index}
+              key={user.userId}
+              name={user.userName}
+              image={user.userImage}
+              points={user.points}
+              me={userProgress.userId == user.userId}
+            />
+          ))}
+        </div>
       </div>
       <StickyWarpper>
         <UserProcessing
