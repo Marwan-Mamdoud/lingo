@@ -45,7 +45,7 @@ const page = () => {
           </SignedOut>
           <SignedIn>
             <Button variant="secondry" size="lg">
-              <Link href="/learn">Countinue Learingg</Link>
+              <Link href="/learn">Countinue Learing</Link>
             </Button>
           </SignedIn>
         </ClerkLoaded>
