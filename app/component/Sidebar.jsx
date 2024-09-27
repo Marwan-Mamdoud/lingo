@@ -24,7 +24,7 @@ const Sidebar = ({ className }) => {
         <SidebarItem icon="./learn.svg" href="/learn" label="Learn" />
         <SidebarItem
           icon="./leaderboard.svg"
-          href="/leaderboard"
+          href="/board"
           label="leaderboard"
         />
         <SidebarItem icon="./shop.svg" href="/shop" label="shop" />

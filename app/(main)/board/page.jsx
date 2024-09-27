@@ -7,7 +7,7 @@ import StickyWarpper from "@/app/component/StickyWarpper";
 import UserProcessing from "@/app/component/UserProcessing";
 import Image from "next/image";
 import React from "react";
-import Users from "./Users";
+import Users from "./users";
 import Promo from "@/app/component/Promo";
 
 const Page = async () => {
