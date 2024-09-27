@@ -10,9 +10,9 @@ import Users from "./users";
 import Promo from "@/app/component/Promo";
 
 const Page = async () => {
+  const usersProgress = await getUsersProgrss();
   const userProgress = await getUserprogress();
   const userSubscription = await getUserSubscription();
-  const usersProgress = await getUsersProgrss();
 
   const isPro = !!userSubscription;
 
@@ -34,18 +34,16 @@ const Page = async () => {
             See where you stand among other learners in the community.
           </p>
         </div>
-        <div className="">
-          {usersProgress?.map((user, index) => (
-            <Users
-              index={index}
-              key={user.userId}
-              name={user.userName}
-              image={user.userImage}
-              points={user.points}
-              me={userProgress.userId == user.userId}
-            />
-          ))}
-        </div>
+        {usersProgress.map((user, index) => (
+          <Users
+            index={index}
+            key={user.userId}
+            name={user.userName}
+            image={user.userImage}
+            points={user.points}
+            me={userProgress.userId == user.userId}
+          />
+        ))}
       </div>
       <StickyWarpper>
         <UserProcessing
