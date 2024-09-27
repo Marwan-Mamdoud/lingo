@@ -35,7 +35,7 @@ const Page = async () => {
           </p>
         </div>
         <div className="">
-          {usersProgress.map((user, index) => (
+          {usersProgress?.map((user, index) => (
             <Users
               index={index}
               key={user.userId}
