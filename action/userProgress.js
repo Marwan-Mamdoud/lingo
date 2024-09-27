@@ -219,7 +219,7 @@ export const getUserSubscription = async () => {
 export const getUsersProgrss = async () => {
   try {
     const data = await API("/api/userProgress/get-users-progress");
-    if (data.data) return data.data.usersProgress;
+    if (data.data) return data.data.usersProgees;
   } catch (error) {
     console.log(error);
   }
