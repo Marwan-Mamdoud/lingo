@@ -10,7 +10,7 @@ import React from "react";
 import Users from "./Users";
 import Promo from "@/app/component/Promo";
 
-const page = async () => {
+const Page = async () => {
   const userProgress = await getUserprogress();
   const userSubscription = await getUserSubscription();
   const usersProgress = await getUsersProgrss();
@@ -62,4 +62,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Page;
