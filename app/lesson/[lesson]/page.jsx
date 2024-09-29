@@ -16,6 +16,7 @@ const page = async ({ params }) => {
   const userSubscription = await getUserSubscription();
   const isUnlimited = !!userSubscription?.active;
   const challenge = await getChallenges(lesson._id);
+  console.log(lesson);
 
   if (!data || !userProgress) {
     redirect("/learn");

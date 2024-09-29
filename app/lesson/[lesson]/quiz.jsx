@@ -28,7 +28,7 @@ const Quiz = ({
   const [correct, _c, controll] = useAudio({ src: "/correct.wav" });
   const [inCorrect, _i, inControll] = useAudio({ src: "/incorrect.wav" });
   const router = useRouter();
-  const [hearts, setHearts] = useState(userProgress.hearts);
+  const [hearts, setHearts] = useState(Number(userProgress.hearts));
   const [percentage, setPercentage] = useState(initialPercentage);
   const [status, setStatus] = useState("none");
   const [selectedOption, setSelectedOption] = useState();
@@ -38,6 +38,7 @@ const Quiz = ({
     );
     return firstUncompletedchallenge === -1 ? 0 : firstUncompletedchallenge;
   });
+
   const challenge = challenges[activeIndex];
   const title =
     challenge?.type === "ASSIST"
@@ -80,7 +81,7 @@ const Quiz = ({
     if (correctOption && selectedOption === correctOption._id) {
       controll.play();
       setStatus("correct");
-      setHearts((current) => Math.min(current + 1, 25));
+      setHearts((current) => Number(Math.min(current + 1, 25)));
       setPercentage((current) => current + 100 / challenges.length);
       await upsertChallengeProgress(challenge._id);
     } else {
@@ -92,7 +93,7 @@ const Quiz = ({
           console.log(res);
           return;
         } else {
-          setHearts((current) => Math.max(current - 1, 0));
+          setHearts((current) => Number(Math.max(current - 1, 0)));
         }
       });
     }
