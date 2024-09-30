@@ -15,7 +15,7 @@ import Promo from "@/app/component/Promo";
 const page = async () => {
   const userProgress = await getUserprogress();
   const userSubscription = await getUserSubscription();
-  const isUnlimited = !!userSubscription?.active;
+  const isUnlimited = !!userSubscription;
   if (!userProgress) {
     redirect("/courses");
   }

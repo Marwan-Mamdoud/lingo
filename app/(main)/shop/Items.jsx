@@ -1,6 +1,6 @@
 "use client";
 import { refillHearts } from "@/action/userProgress";
-import { createStripeUrl } from "@/action/userSubscription";
+import { createStripeUrl, createSubscription } from "@/action/userSubscription";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@chakra-ui/react";
 import Image from "next/image";
@@ -13,7 +13,10 @@ const Items = ({ hearts, points, isPro }) => {
 
   const upgradeToPro = async () => {
     const stripe = await createStripeUrl();
+    await createSubscription();
+
     window.location.href = stripe.data;
+
     return toast({
       title: "Done Refill your hearts",
       status: "success",
@@ -23,7 +26,7 @@ const Items = ({ hearts, points, isPro }) => {
 
   const onClick = async () => {
     const data = await refillHearts();
-    if (data) router.push("/shop");
+    if (data) window.location.reload();
     return toast({
       title: "Done Refill your hearts",
       status: "success",
@@ -62,10 +65,10 @@ const Items = ({ hearts, points, isPro }) => {
         <div className=" items-center">
           <Button
             onClick={upgradeToPro}
-            // disabled={isPro}
+            disabled={isPro}
             variant="defaultOutline"
           >
-            {isPro ? "Setting" : "Upgrade"}
+            Upgrade
           </Button>
         </div>
       </li>

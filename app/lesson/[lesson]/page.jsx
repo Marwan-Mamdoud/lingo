@@ -14,7 +14,7 @@ const page = async ({ params }) => {
   const lesson = data?.lesson;
   const userProgress = await getUserprogress();
   const userSubscription = await getUserSubscription();
-  const isUnlimited = !!userSubscription?.active;
+  const isUnlimited = !!userSubscription;
   const challenge = await getChallenges(lesson._id);
   console.log(lesson);
 

@@ -1,7 +1,7 @@
 "use server";
 
 import { auth, currentUser } from "@clerk/nextjs/server";
-import { Path } from "@/lib/createApi";
+import { API, Path } from "@/lib/createApi";
 import { getUserSubscription } from "./userProgress";
 import { stripe } from "@/lib/stripe";
 
@@ -49,4 +49,21 @@ export const createStripeUrl = async () => {
   });
 
   return { data: stripeSession.url };
+};
+
+export const createSubscription = async () => {
+  try {
+    const { userId } = auth();
+    const user = await currentUser();
+    console.log(user.firstName);
+    const data = await API.post("/api/userProgress/create-user-subscription", {
+      userId: userId,
+      user: user.firstName,
+    });
+    if (data.data) {
+      return returnUrl;
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
