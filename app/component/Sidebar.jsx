@@ -21,14 +21,15 @@ const Sidebar = ({ className }) => {
         </h1>
       </Link>
       <div className="flex flex-1 flex-col px-3">
-        <SidebarItem icon="./learn.svg" href="/learn" label="Learn" />
-        <SidebarItem icon="./shop.svg" href="/shop" label="shop" />
-        <SidebarItem icon="./quests.svg" href="/quests" label="quests" />
+        <SidebarItem icon="/learn.svg" href="/learn" label="Learn" />
+        <SidebarItem icon="/shop.svg" href="/shop" label="shop" />
+        <SidebarItem icon="/quests.svg" href="/quests" label="quests" />
         <SidebarItem
-          icon="./leaderboard.svg"
+          icon="/leaderboard.svg"
           href="/board"
           label="Leaderboard"
         />
+        <SidebarItem icon="/leaderboard.svg" href="/dash" label="Dashboard" />
       </div>
       <div className="p-4">
         <ClerkLoading>

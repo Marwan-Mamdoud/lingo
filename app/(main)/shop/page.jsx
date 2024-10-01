@@ -4,6 +4,7 @@ import UserProcessing from "@/app/component/UserProcessing";
 import Image from "next/image";
 import React from "react";
 import Items from "./Items";
+import { Meteors } from "@/components/ui/meteors";
 
 const Shop = async () => {
   const userProgress = await getUserprogress();
@@ -37,6 +38,7 @@ const Shop = async () => {
           />
         </StickyWarpper>
       </div>
+      <Meteors number={20} />
     </div>
   );
 };
