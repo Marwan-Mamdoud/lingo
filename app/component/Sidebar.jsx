@@ -29,7 +29,7 @@ const Sidebar = ({ className }) => {
           href="/board"
           label="Leaderboard"
         />
-        <SidebarItem icon="/leaderboard.svg" href="/dash" label="Dashboard" />
+        {/* <SidebarItem icon="/leaderboard.svg" href="/dash" label="Dashboard" /> */}
       </div>
       <div className="p-4">
         <ClerkLoading>
